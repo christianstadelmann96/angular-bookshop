@@ -1,19 +1,27 @@
-<nav class="flex justify-between p-4 bg-purple-900 text-white">
-    <div>
-        <a routerLink="/">Book Shop</a>
-    </div>
-    <div>
+<div class="card text-center">
+    <div class="card-header">
+      <ul class="nav nav-pills card-header-pills">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/">Book Shop</a>
+        </li>
         <ng-container *ngIf="!isAuthenticated()">
-            <a class="mx-4" routerLink="/login">Login</a>
-            <a class="mx-4" routerLink="/register">Register</a>
+            <li class="nav-item">
+                <a class="mx-4 nav-link" routerLink="/login">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="mx-4 nav-link" routerLink="/register">Register</a>
+            </li>
         </ng-container>
         <ng-container *ngIf="isAuthenticated()">
-            <a class="mx-4" routerLink="/cart">My Cart</a>
-            <a (click)="logOut()" class="mx-4">Logout</a>
+            <li class="nav-item">
+                <a class="mx-4 nav-link" routerLink="/cart">My Cart</a>
+            </li>
+            <li class="nav-item">
+                <a (click)="logOut()" class="mx-4 nav-link">Logout</a>
+            </li>
         </ng-container>
-        
+      </ul>
     </div>
-</nav>
-<div class="p-10">
-    <router-outlet></router-outlet>
-</div>
+  </div>
+
+<router-outlet></router-outlet>

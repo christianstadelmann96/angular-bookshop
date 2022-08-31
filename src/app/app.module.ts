@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
+import { firebaseConfig } from './firebase.config';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
@@ -17,7 +20,9 @@ import { CartComponent } from './cart/cart.component';
     BrowserModule,
     AppRoutingModule,
     BooksModule,
-    AuthModule
+    AuthModule,
+    AngularFireModule.initializeApp(firebaseConfig.firebase),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
